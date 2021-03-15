@@ -1,107 +1,88 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import TypographyStyled from '@material-ui/core/Typography'
-import BoxStyled from '@material-ui/core/Box'
-import ContainerStyled from '@material-ui/core/Container'
-import GridStyled from '@material-ui/core/Grid'
 import LinkStyled from '@material-ui/core/Link'
 import Image from 'next/image'
 import ListItemTextStyled from '@material-ui/core/ListItemText'
 
-export const Container = styled(ContainerStyled).attrs({
-  container: true,
-  item: true,
-  xs: 12
-})``
-
-export const ContainerBackground = styled(motion.div)``
-
-export const HeadingGrid = styled(GridStyled).attrs({
-  container: true,
-  item: true,
-  xs: 5
-})``
-
-export const ProductBox = styled(BoxStyled).attrs({
-  mt: 4
-})`
-  &.MuiBox-root {
-    padding-bottom: 0;
-  }
+export const Container = styled.main`
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto auto auto 1fr auto;
+  grid-column: 1 / -1;
+  padding: 1em;
 `
 
-export const ProductName = styled(motion.div)``
+export const HeadingGrid = styled.div`
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  align-self: start;
+  justify-self: start;
+  margin-top: 0.6em;
+`
 
 export const ProductNameType = styled(TypographyStyled).attrs({
-  align: 'left',
-  variant: 'body1',
+  variant: 'h6',
   component: 'div'
 })``
 
-export const CtaBox = styled(GridStyled).attrs({
-  container: true,
-  item: true,
-  xs: 12
-})``
-
-export const CtaContent = styled(motion.div)``
+export const CtaContent = styled(motion.div)`
+  grid-column: 1 / -1;
+  grid-row: 2 / 2;
+  justify-self: center;
+  align-self: end;
+  margin-top: 1em;
+`
 
 export const CtaText = styled(TypographyStyled).attrs({
-  align: 'left',
+  align: 'center',
   variant: 'h3',
   component: 'h1'
+})`
+  &.MuiTypography-root {
+    font-weight: 600;
+  }
+`
+
+export const CtaParagraphContent = styled(motion.div)`
+  grid-column: 1 / -1;
+  grid-row: 3 / 3;
+  align-self: center;
+  margin-top: 1em;
+`
+
+export const CtaParagraphText = styled(TypographyStyled).attrs({
+  align: 'left',
+  variant: 'h6',
+  component: 'div'
 })`
   &.MuiTypography-root {
     font-weight: 400;
   }
 `
-
-export const CtaParagraphBox = styled(BoxStyled).attrs({})`
-  &.MuiBox-root {
-    padding-top: 1em;
-  }
+export const LogoContainer = styled.div`
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  align-self: end;
+  justify-self: end;
+  opacity: 0.3;
+  z-index: -99;
 `
-
-export const CtaParagraphContent = styled(motion.div)``
-
-export const CtaParagraphText = styled(TypographyStyled).attrs({
-  align: 'left',
-  variant: 'body1',
-  component: 'div'
-})`
-  &.MuiTypography-root {
-  }
-`
-export const LogoButtonGrid = styled(GridStyled).attrs({
-  container: true,
-  direction: 'row',
-  justify: 'space-between'
-})``
-export const CtaButtonContainer = styled(GridStyled).attrs({
-  container: true,
-  item: true,
-  justify: 'flex-start',
-  xs: 6
-})``
-export const LogoContainer = styled(GridStyled).attrs({
-  container: true,
-  item: true,
-  justify: 'flex-end',
-  xs: 3
-})``
 export const CtaLinkButton = styled(LinkStyled).attrs((props) => ({
   component: 'button',
   variant: 'button',
-  align: 'left',
   underline: 'none'
 }))`
   &.MuiLink-root {
-    display: inline-block;
-    width: 100%;
+    grid-column: 1 / -1;
+    justify-self: start;
+    grid-row: 4 / 4;
+    border-radius: 20px;
     margin-top: 1em;
+    width: 200px;
+    align-self: start;
+    display: inline-block;
     padding: 0.7em;
-    height: 50px;
-    text-align: left;
     color: ${(props) => props.theme.colors.textWhite};
     background: ${(props) => props.theme.colors.primary};
     border: 2px solid ${(props) => props.theme.colors.primary};
@@ -116,23 +97,23 @@ export const CtaLinkButton = styled(LinkStyled).attrs((props) => ({
   }
 `
 
-export const SalesBox = styled(BoxStyled).attrs({
-  mt: 1
-})``
+export const SalesContainer = styled(motion.div)`
+  grid-column: 1 / -1;
+  grid-row: 5 / 5;
+  justify-self: start;
+  align-self: end;
+`
 
 export const SalesLink = styled(LinkStyled).attrs((props) => ({
-  align: 'left'
-}))`
-  font-size: 1rem;
-  margin: 0;
-`
+  variant: 'h6',
+  component: 'span',
+  color: 'primary'
+}))``
 export const ListItemText = styled(ListItemTextStyled).attrs({
   secondaryTypographyProps: {
     component: 'div'
   }
 })``
-
-export const TechContainer = styled(motion.div)``
 
 export const TechImage = styled(Image).attrs({})`
   object-fit: contain;

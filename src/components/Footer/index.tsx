@@ -1,26 +1,30 @@
 import { footerData } from '../../services/api'
-import * as S from '../../styles/template/Footer/styles'
+import {
+  ContentGrid,
+  ProductName,
+  LinkBox,
+  NavLink,
+  Container
+} from '../../styles/template/Footer/styles'
 
 const Content = () => {
   return (
-    <S.ContentGrid>
-      <S.ContentBox>
-        <S.ProductName>{footerData.productName}</S.ProductName>
-        {footerData?.links?.map((link) => (
-          <S.LinkBox key={link.id}>
-            <S.NavLink href="">{link.title}</S.NavLink>
-          </S.LinkBox>
-        ))}
-      </S.ContentBox>
-    </S.ContentGrid>
+    <ContentGrid>
+      <ProductName>{footerData.productName}</ProductName>
+      {footerData?.links?.map((link) => (
+        <LinkBox key={link.id}>
+          <NavLink href="">{link.title}</NavLink>
+        </LinkBox>
+      ))}
+    </ContentGrid>
   )
 }
 
 const Footer = () => {
   return (
-    <S.Container>
+    <Container>
       <Content />
-    </S.Container>
+    </Container>
   )
 }
 

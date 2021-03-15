@@ -6,9 +6,11 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-
   html, body, #__next {
     height: 100%;
+    width: 100%;
+    display: flex;
+    flex: 1;
   }
 
   body {

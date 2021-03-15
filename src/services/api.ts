@@ -28,8 +28,8 @@ export const headData: PageContent = {
       name: 'GooglePlay',
       slug: 'googleplay',
       href: '/img/googleplay/logo.png',
-      width: 90,
-      height: 40
+      width: 150,
+      height: 80
     }
   ]
 }

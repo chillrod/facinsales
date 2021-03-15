@@ -1,43 +1,49 @@
 import { productData, productHead } from '../../services/api'
+import mac from '../../../public/animation/mac.json'
+import LottieAnimation from '../Animation/'
 
-import * as S from '../../styles/template/Product/styles'
+import {
+  ListItemText,
+  TitleContent,
+  ContentMotion,
+  ProductHeadText,
+  ContentGrid,
+  ProductImage,
+  Container
+} from '../../styles/template/Product/styles'
 
 const Content = () => {
   return (
     <>
-      <S.ListItemText
-        primary={<S.Icon>{productHead.icon}</S.Icon>}
-        secondary={
-          <S.ProductHeadGrid>
-            <S.ProductHeadBox>
-              <S.ProductHeadText>{productHead.title}</S.ProductHeadText>
-            </S.ProductHeadBox>
-          </S.ProductHeadGrid>
-        }
-      />
-      {productData?.content?.map((content) => (
-        <S.ContentGrid key={content.id}>
-          <S.ContentMotion>
-            <S.ContentBox>
-              <S.ProductImage
+      <TitleContent>
+        <ListItemText
+          primary={<LottieAnimation lotti={mac} width={200} height={180} />}
+          secondary={<ProductHeadText>{productHead.title}</ProductHeadText>}
+        />
+      </TitleContent>
+      <>
+        {productData?.content?.map((content) => (
+          <ContentGrid key={content.id}>
+            <ContentMotion>
+              <ProductImage
                 src={content.href}
                 alt={content.name}
                 height={content.height}
                 width={content.width}
               />
-            </S.ContentBox>
-          </S.ContentMotion>
-        </S.ContentGrid>
-      ))}
+            </ContentMotion>
+          </ContentGrid>
+        ))}
+      </>
     </>
   )
 }
 
 const Product = () => {
   return (
-    <S.Container>
+    <Container>
       <Content />
-    </S.Container>
+    </Container>
   )
 }
 

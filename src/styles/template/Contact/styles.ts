@@ -1,32 +1,17 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import ContainerStyled from '@material-ui/core/Container'
-import GridStyled from '@material-ui/core/Grid'
-import BoxStyled from '@material-ui/core/Box'
 import ListItemTextStyled from '@material-ui/core/ListItemText'
 import TypographyStyled from '@material-ui/core/Typography'
-import ButtonStyled from '@material-ui/core/Button'
-import Image from 'next/image'
+import LinkStyled from '@material-ui/core/Link'
 import TextFieldStyled from '@material-ui/core/TextField'
-export const Container = styled(ContainerStyled).attrs({})``
 
-export const ContentGrid = styled(GridStyled).attrs({
-  container: true,
-  item: true,
-  direction: 'column',
-  justify: 'center'
-})``
-
-export const ContentMotion = styled(motion.div)``
-
-export const ContentBox = styled(BoxStyled).attrs({
-  mt: 2
-})``
-export const ProductImage = styled(Image).attrs({})`
-  object-fit: cover;
-  border-radius: 10px;
-  object-position: left;
+export const Container = styled(motion.div).attrs({})`
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
 `
+
+export const ContactGrid = styled(motion.div).attrs({})``
 
 export const ListItemText = styled(ListItemTextStyled).attrs({
   primaryTypographyProps: {
@@ -38,26 +23,23 @@ export const ListItemText = styled(ListItemTextStyled).attrs({
   }
 })``
 
-export const TitleBox = styled(BoxStyled).attrs({
-  mt: 2
-})``
+export const TitleBox = styled(motion.div).attrs({})``
 
 export const InfoTypography = styled(TypographyStyled).attrs({
   align: 'left',
   variant: 'body1'
 })``
 
-export const FormGrid = styled(GridStyled).attrs({
-  container: true,
-  direction: 'row'
+export const CTATypography = styled(TypographyStyled).attrs({
+  align: 'left',
+  variant: 'h6',
+  color: 'primary'
 })``
 
-export const FormGridItem = styled(GridStyled).attrs({
-  item: true,
-  xs: 12
-})``
+export const FormGrid = styled(motion.div).attrs({})``
 
-export const FormBox = styled(BoxStyled).attrs({})``
+export const FormGridItem = styled(motion.div).attrs({})``
+
 export const TextField = styled(TextFieldStyled).attrs({
   variant: 'filled'
 })`
@@ -73,27 +55,31 @@ export const TextField = styled(TextFieldStyled).attrs({
   }
 `
 
-export const FormButtonContainer = styled(BoxStyled).attrs({
-  mt: 2
+export const FormButtonContainer = styled(motion.div).attrs({})``
+export const FormButton = styled(LinkStyled).attrs({
+  component: 'button',
+  variant: 'button',
+  underline: 'none'
 })`
-  &.MuiBox-root {
+  &.MuiLink-root {
+    grid-column: 1 / -1;
+    justify-self: center;
+    grid-row: 4 / 4;
+    border-radius: 20px;
+    margin-top: 1em;
+    margin-bottom: 1em;
     width: 200px;
-  }
-`
-export const FormButton = styled(ButtonStyled).attrs({
-  variant: 'outlined'
-})`
-  &.MuiButton-root {
-    border-radius: 0px;
-    width: 80%;
-    padding: 0.9em;
-    background: ${(props) => props.theme.colors.textWhite};
+    align-self: center;
+    display: inline-block;
+    padding: 0.7em;
     color: ${(props) => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.textWhite};
     border: 2px solid ${(props) => props.theme.colors.primary};
 
     &:hover {
-      &.MuiButton-root {
+      &.MuiLink-root {
         background: ${(props) => props.theme.colors.primary};
+        border: 2px solid ${(props) => props.theme.colors.textWhite};
         color: ${(props) => props.theme.colors.textWhite};
       }
     }

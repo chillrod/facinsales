@@ -1,49 +1,57 @@
 import { contactData } from '../../services/api'
 import { Form } from '@unform/web'
-import * as S from '../../styles/template/Contact/styles'
-
+import {
+  ListItemText,
+  TitleBox,
+  InfoTypography,
+  FormGrid,
+  FormGridItem,
+  TextField,
+  FormButtonContainer,
+  FormButton,
+  Container,
+  ContactGrid,
+  CTATypography
+} from '../../styles/template/Contact/styles'
 const Content = () => {
   return (
-    <>
-      <S.ListItemText
-        primary={<S.TitleBox>{contactData.info.title}</S.TitleBox>}
+    <ContactGrid>
+      <ListItemText
+        primary={
+          <TitleBox>
+            <CTATypography>{contactData.info.title}</CTATypography>
+          </TitleBox>
+        }
         secondary={
-          <S.TitleBox>
-            <S.InfoTypography>
-              Entre em contato agora com a nossa equipe de vendas ou preencha o
-              formulário e entraremos em contato com você
-            </S.InfoTypography>
-          </S.TitleBox>
+          <TitleBox>
+            <InfoTypography>{contactData.info.paragraph}</InfoTypography>
+          </TitleBox>
         }
       />
 
-      <S.FormGrid>
-        <S.FormGridItem>
-          <S.FormBox>
+      <FormGrid>
+        <FormGridItem>
+          <Form>
             {contactData?.form?.map((form) => (
               <>
-                <S.TextField
-                  name={form.value}
-                  label={form.title}
-                  key={form.id}
-                />
+                <TextField name={form.value} label={form.title} key={form.id} />
               </>
             ))}
-          </S.FormBox>
-        </S.FormGridItem>
-        <S.FormButtonContainer>
-          <S.FormButton>Enviar</S.FormButton>
-        </S.FormButtonContainer>
-      </S.FormGrid>
-    </>
+          </Form>
+        </FormGridItem>
+        <FormButtonContainer>
+          <FormButton>Enviar</FormButton>
+        </FormButtonContainer>
+      </FormGrid>
+    </ContactGrid>
   )
 }
 
 const Contact = () => {
   return (
-    <S.Container>
+    <Container>
       <Content />
-    </S.Container>
+    </Container>
   )
 }
 
