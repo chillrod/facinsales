@@ -1,21 +1,51 @@
-import * as S from './styles'
+import { mainData } from '../../services/api'
+import * as S from '../../styles/template/Main/styles'
 
-const Main = ({
-  title = 'React Avançado',
-  description = 'TypeScript, ReactJS, NextJS e Styled Components'
-}) => (
-  <S.Wrapper>
-    <S.Logo
-      src="/img/logo.svg"
-      alt="Imagem de um átomo e React Avançado escrito ao lado."
-    />
-    <S.Title>{title}</S.Title>
-    <S.Description>{description}</S.Description>
-    <S.Illustration
-      src="/img/hero-illustration.svg"
-      alt="Um desenvolvedor de frente para uma tela com código."
-    />
-  </S.Wrapper>
-)
+const CtaButton = () => {
+  return (
+    <>
+      <S.CtaTypography>{mainData.title}</S.CtaTypography>
+      <S.CtaLinkButton>{mainData.buttonText}</S.CtaLinkButton>
+    </>
+  )
+}
+
+const Content = () => {
+  return (
+    <S.ContentGrid>
+      {mainData?.content?.map((data, index) => (
+        <>
+          <S.ContentGridItem key={data.id}>
+            <S.ContentMotion color={index % 2 === 0 ? 'even' : 'odd'}>
+              <S.Icon>{data.icon}</S.Icon>
+              <S.ListItemText
+                primary={data.title}
+                secondary={
+                  <S.Details>
+                    <S.Typography>{data.paragraph}</S.Typography>
+                  </S.Details>
+                }
+              />
+            </S.ContentMotion>
+          </S.ContentGridItem>
+          {index % 8 === 3 && (
+            <S.CtaButtonGrid>
+              <CtaButton />
+            </S.CtaButtonGrid>
+          )}
+        </>
+      ))}
+    </S.ContentGrid>
+  )
+}
+
+const Main = () => {
+  return (
+    <S.Container>
+      <S.ContainerBackground />
+      <Content />
+    </S.Container>
+  )
+}
 
 export default Main

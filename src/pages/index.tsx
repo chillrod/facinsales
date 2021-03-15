@@ -1,5 +1,5 @@
-import Main from 'components/Main'
+import Layout from '../styles/template/Layout'
 
 export default function Home() {
-  return <Main />
+  return <Layout />
 }
