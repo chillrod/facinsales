@@ -1,17 +1,21 @@
-import { Container } from './styles'
+import { Container, Background } from './styles'
+// import background from '../../../../public/img/background.png'
 import Head from '../../../components/Head'
 import Section from '../../../components/Section'
 import Product from '../../../components/Product'
 import Contact from '../../../components/Contact'
 import Footer from '../../../components/Footer'
+
 const Layout = () => {
   return (
     <Container>
-      <Head />
-      <Section />
-      <Product />
-      <Contact />
-      <Footer />
+      <Background>
+        <Head />
+        <Section />
+        <Product />
+        <Contact />
+        <Footer />
+      </Background>
     </Container>
   )
 }

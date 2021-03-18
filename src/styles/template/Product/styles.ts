@@ -5,10 +5,17 @@ import IconStyled from '@material-ui/core/Icon'
 import TypographyStyled from '@material-ui/core/Typography'
 import Image from 'next/image'
 
+export const BackgroundContainer = styled.div`
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+`
+
 export const Container = styled(motion.section).attrs({})`
   padding: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-template-rows: masonry;
 `
 
@@ -20,10 +27,7 @@ export const TitleContent = styled(motion.div)`
   margin-bottom: 1em;
 `
 
-export const ContentMotion = styled(motion.div)`
-  grid-column: 4;
-  grid-row: 3;
-`
+export const ContentMotion = styled(motion.div)``
 
 export const ProductImage = styled(Image).attrs({})`
   object-fit: contain;

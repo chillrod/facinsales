@@ -139,22 +139,22 @@ export const productData: ProductContent = {
       id: 1,
       href: '/img/product1.png',
       name: 'Página de Produtos',
-      width: 400,
-      height: 230
+      width: 1000,
+      height: 1400
     },
     {
       id: 2,
       href: '/img/phone.png',
       name: 'Aplicação mobile',
-      width: 400,
-      height: 380
+      width: 1300,
+      height: 1400
     },
     {
       id: 3,
       href: '/img/product2.png',
       name: 'Página de Produtos',
-      width: 400,
-      height: 230
+      width: 1300,
+      height: 1400
     }
   ]
 }

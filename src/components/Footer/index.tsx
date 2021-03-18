@@ -1,5 +1,6 @@
 import { footerData } from '../../services/api'
 import {
+  BackgroundContainer,
   ContentGrid,
   ProductName,
   LinkBox,
@@ -22,9 +23,11 @@ const Content = () => {
 
 const Footer = () => {
   return (
-    <Container>
-      <Content />
-    </Container>
+    <BackgroundContainer>
+      <Container>
+        <Content />
+      </Container>
+    </BackgroundContainer>
   )
 }
 

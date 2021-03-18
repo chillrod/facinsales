@@ -5,6 +5,13 @@ import TypographyStyled from '@material-ui/core/Typography'
 import LinkStyled from '@material-ui/core/Link'
 import TextFieldStyled from '@material-ui/core/TextField'
 
+export const BackgroundContainer = styled.div`
+  padding-top: 3em;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+`
+
 export const Container = styled(motion.div).attrs({})`
   padding: 1em;
   display: flex;

@@ -3,6 +3,7 @@ import mac from '../../../public/animation/mac.json'
 import LottieAnimation from '../Animation/'
 
 import {
+  BackgroundContainer,
   ListItemText,
   TitleContent,
   ContentMotion,
@@ -41,9 +42,11 @@ const Content = () => {
 
 const Product = () => {
   return (
-    <Container>
-      <Content />
-    </Container>
+    <BackgroundContainer>
+      <Container>
+        <Content />
+      </Container>
+    </BackgroundContainer>
   )
 }
 

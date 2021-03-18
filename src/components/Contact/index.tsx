@@ -1,6 +1,7 @@
 import { contactData } from '../../services/api'
 import { Form } from '@unform/web'
 import {
+  BackgroundContainer,
   ListItemText,
   TitleBox,
   InfoTypography,
@@ -49,9 +50,11 @@ const Content = () => {
 
 const Contact = () => {
   return (
-    <Container>
-      <Content />
-    </Container>
+    <BackgroundContainer>
+      <Container>
+        <Content />
+      </Container>
+    </BackgroundContainer>
   )
 }
 

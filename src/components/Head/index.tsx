@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { headData } from '../../services/api'
 import {
+  BackgroundContainer,
   Container,
   HeadingGrid,
   ProductNameType,
@@ -52,9 +53,11 @@ const HeadText = () => {
 }
 const Head = () => {
   return (
-    <Container>
-      <HeadText />
-    </Container>
+    <BackgroundContainer>
+      <Container>
+        <HeadText />
+      </Container>
+    </BackgroundContainer>
   )
 }
 

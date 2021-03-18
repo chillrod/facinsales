@@ -5,6 +5,13 @@ import TypographyStyled from '@material-ui/core/Typography'
 import LinkStyled from '@material-ui/core/Link'
 import ListItemTextStyled from '@material-ui/core/ListItemText'
 
+export const BackgroundContainer = styled.div`
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+`
+
 export const Container = styled(motion.section)`
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -14,6 +21,27 @@ export const Container = styled(motion.section)`
 
 export const SectionGrid = styled(motion.div).attrs({})`
   grid-column: 1 / -1;
+  background: hsla(190, 100%, 82%, 1);
+
+  background: radial-gradient(
+    circle,
+    hsla(190, 100%, 82%, 0.23) 19%,
+    hsla(240, 100%, 100%, 0.3) 91%
+  );
+
+  background: -moz-radial-gradient(
+    circle,
+    hsla(190, 100%, 82%, 0.23) 19%,
+    hsla(240, 100%, 100%, 0.3) 91%
+  );
+
+  background: -webkit-radial-gradient(
+    circle,
+    hsla(190, 100%, 82%, 0.23) 19%,
+    hsla(240, 100%, 100%, 0.3) 91%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#A2EFFF", endColorstr="#FEFEFF", GradientType=1 );
 `
 
 export const SectionTransitionGrid = styled(motion.div)`
@@ -25,7 +53,6 @@ export const SectionGridItemMotion = styled(motion.div)`
   padding: 1em;
   margin-bottom: 0.6em;
   border-radius: 10px;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 `
 
 export const SectionGridItem = styled(motion.div).attrs({})``

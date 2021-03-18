@@ -5,6 +5,33 @@ import LinkStyled from '@material-ui/core/Link'
 import Image from 'next/image'
 import ListItemTextStyled from '@material-ui/core/ListItemText'
 
+export const BackgroundContainer = styled.div`
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  background: hsla(224, 100%, 62%, 1);
+
+  background: radial-gradient(
+    circle,
+    hsla(224, 100%, 62%, 0.23) 13%,
+    hsla(240, 100%, 100%, 0.3) 91%
+  );
+
+  background: -moz-radial-gradient(
+    circle,
+    hsla(224, 100%, 62%, 0.23) 13%,
+    hsla(240, 100%, 100%, 0.3) 91%
+  );
+
+  background: -webkit-radial-gradient(
+    circle,
+    hsla(224, 100%, 62%, 0.23) 13%,
+    hsla(240, 100%, 100%, 0.3) 91%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#3D71FF", endColorstr="#FEFEFF", GradientType=1 );
+`
+
 export const Container = styled.main`
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -35,7 +62,7 @@ export const CtaContent = styled(motion.div)`
 `
 
 export const CtaText = styled(TypographyStyled).attrs({
-  align: 'center',
+  align: 'left',
   variant: 'h3',
   component: 'h1'
 })`

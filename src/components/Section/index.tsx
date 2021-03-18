@@ -1,5 +1,6 @@
 import { mainData, productHead } from '../../services/api'
 import {
+  BackgroundContainer,
   Container,
   SectionGrid,
   SectionTransitionGrid,
@@ -59,9 +60,11 @@ const Content = () => {
 
 const Section = () => {
   return (
-    <Container>
-      <Content />
-    </Container>
+    <BackgroundContainer>
+      <Container>
+        <Content />
+      </Container>
+    </BackgroundContainer>
   )
 }
 
