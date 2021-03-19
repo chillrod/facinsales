@@ -6,38 +6,51 @@ import Image from 'next/image'
 import ListItemTextStyled from '@material-ui/core/ListItemText'
 
 export const BackgroundContainer = styled.div`
+  border-radius: 25px;
+  padding: 2em;
   backdrop-filter: blur(5px);
+  min-height: 95vh;
   -webkit-backdrop-filter: blur(5px);
-  border-radius: 10px;
-  background: hsla(224, 100%, 62%, 1);
 
   background: radial-gradient(
     circle,
-    hsla(224, 100%, 62%, 0.23) 13%,
-    hsla(240, 100%, 100%, 0.3) 91%
+    hsla(224, 100%, 62%, 0.3) 20%,
+    hsla(76, 6%, 2%, 0.9) 90%
   );
 
-  background: -moz-radial-gradient(
-    circle,
-    hsla(224, 100%, 62%, 0.23) 13%,
-    hsla(240, 100%, 100%, 0.3) 91%
-  );
-
-  background: -webkit-radial-gradient(
-    circle,
-    hsla(224, 100%, 62%, 0.23) 13%,
-    hsla(240, 100%, 100%, 0.3) 91%
-  );
-
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#3D71FF", endColorstr="#FEFEFF", GradientType=1 );
 `
 
 export const Container = styled.main`
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
   grid-template-rows: auto auto auto 1fr auto;
   grid-column: 1 / -1;
   padding: 1em;
+`
+
+export const Desktop = styled.div`
+  display: none;
+  padding: 1em;
+  @media (min-width: 800px) {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    padding: 1em;
+  }
+`
+
+export const DesktopImageContainer = styled(motion.div)`
+  width: 800px;
+  img {
+    object-fit: cover;
+  }
+`
+
+export const MediaQuery = styled.div`
+  @media (min-width: 800px) {
+    display: flex;
+    align-items: center;
+  }
 `
 
 export const HeadingGrid = styled.div`
@@ -49,25 +62,32 @@ export const HeadingGrid = styled.div`
 `
 
 export const ProductNameType = styled(TypographyStyled).attrs({
-  variant: 'h6',
+  variant: 'h5',
   component: 'div'
-})``
+})`
+  &.MuiTypography-root {
+    color: ${(props) => props.theme.colors.text};
+  }
+`
 
 export const CtaContent = styled(motion.div)`
   grid-column: 1 / -1;
   grid-row: 2 / 2;
-  justify-self: center;
+  justify-self: left;
   align-self: end;
   margin-top: 1em;
 `
 
 export const CtaText = styled(TypographyStyled).attrs({
   align: 'left',
-  variant: 'h3',
+  variant: 'h2',
   component: 'h1'
 })`
   &.MuiTypography-root {
-    font-weight: 600;
+    color: ${(props) => props.theme.colors.text};
+    @media (min-width: 800px) {
+      font-size: 6rem;
+    }
   }
 `
 
@@ -84,6 +104,7 @@ export const CtaParagraphText = styled(TypographyStyled).attrs({
   component: 'div'
 })`
   &.MuiTypography-root {
+    color: ${(props) => props.theme.colors.text};
     font-weight: 400;
   }
 `
@@ -104,21 +125,20 @@ export const CtaLinkButton = styled(LinkStyled).attrs((props) => ({
     grid-column: 1 / -1;
     justify-self: start;
     grid-row: 4 / 4;
-    border-radius: 20px;
     margin-top: 1em;
-    width: 200px;
+    width: 300px;
     align-self: start;
     display: inline-block;
     padding: 0.7em;
-    color: ${(props) => props.theme.colors.textWhite};
+    color: ${(props) => props.theme.colors.text};
     background: ${(props) => props.theme.colors.primary};
     border: 2px solid ${(props) => props.theme.colors.primary};
 
     &:hover {
       &.MuiLink-root {
-        background: ${(props) => props.theme.colors.textWhite};
+        background: ${(props) => props.theme.colors.background};
         border: 2px solid ${(props) => props.theme.colors.primary};
-        color: ${(props) => props.theme.colors.primary};
+        color: ${(props) => props.theme.colors.text};
       }
     }
   }
@@ -133,9 +153,14 @@ export const SalesContainer = styled(motion.div)`
 
 export const SalesLink = styled(LinkStyled).attrs((props) => ({
   variant: 'h6',
-  component: 'span',
-  color: 'primary'
-}))``
+  component: 'span'
+}))`  
+  &.MuiTypography-root {
+    color: ${(props) => props.theme.colors.secondBackground};
+    }
+  }
+
+`
 export const ListItemText = styled(ListItemTextStyled).attrs({
   secondaryTypographyProps: {
     component: 'div'

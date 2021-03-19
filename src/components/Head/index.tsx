@@ -3,6 +3,9 @@ import { headData } from '../../services/api'
 import {
   BackgroundContainer,
   Container,
+  Desktop,
+  DesktopImageContainer,
+  MediaQuery,
   HeadingGrid,
   ProductNameType,
   CtaContent,
@@ -51,12 +54,30 @@ const HeadText = () => {
     </>
   )
 }
+
+const HeadDesktopContent = () => {
+  return (
+    <Desktop>
+      <DesktopImageContainer>
+        <Image
+          src={headData.techDesktop.imageHref}
+          height={headData.techDesktop.height}
+          width={headData.techDesktop.width}
+        />
+      </DesktopImageContainer>
+    </Desktop>
+  )
+}
+
 const Head = () => {
   return (
     <BackgroundContainer>
-      <Container>
-        <HeadText />
-      </Container>
+      <MediaQuery>
+        <Container>
+          <HeadText />
+        </Container>
+        <HeadDesktopContent />
+      </MediaQuery>
     </BackgroundContainer>
   )
 }

@@ -15,8 +15,8 @@ export const BackgroundContainer = styled.div`
 export const Container = styled(motion.section).attrs({})`
   padding: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-template-rows: masonry;
+  grid-template-columns: 1fr auto;
+  grid-auto-flow: dense;
 `
 
 export const ContentGrid = styled(motion.div).attrs({})``
@@ -36,8 +36,7 @@ export const ProductImage = styled(Image).attrs({})`
 export const ListItemText = styled(ListItemTextStyled).attrs({
   primaryTypographyProps: {
     component: 'div',
-    variant: 'h6',
-    color: 'primary'
+    variant: 'h6'
   }
 })``
 
@@ -54,7 +53,10 @@ export const ProductHeadGrid = styled(motion.div).attrs({})``
 export const ProductHeadBox = styled(motion.div).attrs({})``
 
 export const ProductHeadText = styled(TypographyStyled).attrs({
-  variant: 'h6',
-  component: 'span',
-  color: 'primary'
-})``
+  variant: 'h2',
+  component: 'p'
+})`
+  &.MuiTypography-root {
+    color: ${(props) => props.theme.colors.secondBackground};
+  }
+`

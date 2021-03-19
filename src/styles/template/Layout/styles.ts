@@ -1,15 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#3D71FF", endColorstr="#FEFEFF", GradientType=1 );
   display: flex;
   margin: 0 auto;
 
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#3D71FF", endColorstr="#FEFEFF", GradientType=1 );
+  background: -webkit-radial-gradient(circle, hsla(76, 6%, 2%, 1) 91%);
 `
 
 export const Background = styled.div`
-  background: url('./img/background.png');
   background-size: 100%;
-  background-blend-mode: 
-  max-width: 1000px;
 `

@@ -18,11 +18,11 @@ const Content = () => {
     <>
       <TitleContent>
         <ListItemText
-          primary={<LottieAnimation lotti={mac} width={200} height={180} />}
           secondary={<ProductHeadText>{productHead.title}</ProductHeadText>}
         />
       </TitleContent>
       <>
+        <LottieAnimation lotti={mac} width={800} height={600} />
         {productData?.content?.map((content) => (
           <ContentGrid key={content.id}>
             <ContentMotion>

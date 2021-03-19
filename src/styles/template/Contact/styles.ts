@@ -72,7 +72,6 @@ export const FormButton = styled(LinkStyled).attrs({
     grid-column: 1 / -1;
     justify-self: center;
     grid-row: 4 / 4;
-    border-radius: 20px;
     margin-top: 1em;
     margin-bottom: 1em;
     width: 200px;
@@ -80,7 +79,6 @@ export const FormButton = styled(LinkStyled).attrs({
     display: inline-block;
     padding: 0.7em;
     color: ${(props) => props.theme.colors.primary};
-    background: ${(props) => props.theme.colors.textWhite};
     border: 2px solid ${(props) => props.theme.colors.primary};
 
     &:hover {

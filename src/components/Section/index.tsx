@@ -1,12 +1,15 @@
-import { mainData, productHead } from '../../services/api'
+import { Fragment } from 'react'
+import { mainData } from '../../services/api'
 import {
   BackgroundContainer,
+  MediaQuery,
   Container,
   SectionGrid,
   SectionTransitionGrid,
-  SectionGridItem,
   Icon,
   ListItemText,
+  TypographyHeader,
+  TypographyHead,
   Details,
   Typography,
   SectionGridItemMotion,
@@ -28,16 +31,16 @@ const Content = () => {
   return (
     <>
       <SectionTransitionGrid>
-        <ListItemText primary={productHead.title} />
+        <TypographyHeader>{mainData.headText}</TypographyHeader>
       </SectionTransitionGrid>
-      <SectionGrid>
-        {mainData?.content?.map((data, index) => (
-          <>
-            <SectionGridItem key={data.id}>
+      <MediaQuery>
+        <SectionGrid>
+          {mainData?.content?.map((data, index) => (
+            <Fragment key={data.id}>
               <SectionGridItemMotion>
                 <Icon>{data.icon}</Icon>
                 <ListItemText
-                  primary={data.title}
+                  primary={<TypographyHead>{data.title}</TypographyHead>}
                   secondary={
                     <Details>
                       <Typography>{data.paragraph}</Typography>
@@ -45,15 +48,15 @@ const Content = () => {
                   }
                 />
               </SectionGridItemMotion>
-            </SectionGridItem>
-            {index % 8 === 3 && (
-              <CtaButtonGrid>
-                <CtaButtonComponent />
-              </CtaButtonGrid>
-            )}
-          </>
-        ))}
-      </SectionGrid>
+              {index % 8 === 3 && (
+                <CtaButtonGrid>
+                  <CtaButtonComponent />
+                </CtaButtonGrid>
+              )}
+            </Fragment>
+          ))}
+        </SectionGrid>
+      </MediaQuery>
     </>
   )
 }

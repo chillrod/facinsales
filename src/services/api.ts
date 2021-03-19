@@ -6,6 +6,11 @@ export type TechnologiesContent = {
   width: number
   height: number
 }
+export type LandingPicture = {
+  imageHref: string
+  width: number
+  height: number
+}
 export type PageContent = {
   product: string
   ctaText: string
@@ -13,11 +18,12 @@ export type PageContent = {
   buttonText: string
   linkContent: string
   techData?: TechnologiesContent[]
+  techDesktop: LandingPicture
 }
 
 export const headData: PageContent = {
   product: 'Facin Web Sales',
-  ctaText: 'Seu fluxo de vendas facilitado e moderno. ',
+  ctaText: 'Seu fluxo de vendas facilitado e moderno.',
   ctaParagraph:
     'Controle o estoque de sua empresa, clientes e fluxo de mercadorias, integrado ao ERP Protheus com tecnologias modernas da Web e Mobile.',
   buttonText: 'Comece agora',
@@ -31,7 +37,12 @@ export const headData: PageContent = {
       width: 150,
       height: 80
     }
-  ]
+  ],
+  techDesktop: {
+    imageHref: '/img/landingPicture.png',
+    width: 1000,
+    height: 1000
+  }
 }
 
 export type FeatureContent = {
@@ -44,12 +55,14 @@ export type FeatureContent = {
 export type MainContent = {
   title: string
   buttonText: string
+  headText: string
   content?: FeatureContent[]
 }
 
 export const mainData: MainContent = {
   title: 'Vamos começar?',
   buttonText: 'Entre em contato',
+  headText: 'Um pacote de controle de sistemas totalmente integrados',
   content: [
     {
       id: 1,

@@ -9,12 +9,18 @@ const GlobalStyles = createGlobalStyle`
   html, body, #__next {
     height: 100%;
     width: 100%;
-    display: flex;
     flex: 1;
   }
 
   body {
     font-family: 'IBM Plex Sans', sans-serif;
+    background: ${(props) => props.theme.colors.background};
+
+  background: -webkit-radial-gradient(
+    circle,
+    hsla(76, 6%, 2%, 1) 91%
+  );
+
   }
   
 
