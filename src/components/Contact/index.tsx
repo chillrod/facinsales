@@ -1,5 +1,6 @@
 import { contactData } from '../../services/api'
 import { Form } from '@unform/web'
+
 import {
   BackgroundContainer,
   ListItemText,
@@ -14,6 +15,8 @@ import {
   ContactGrid,
   CTATypography
 } from '../../styles/template/Contact/styles'
+import LottieAnimation from 'components/Animation'
+import typing from '../../../public/animation/typing.json'
 const Content = () => {
   return (
     <ContactGrid>
@@ -31,6 +34,7 @@ const Content = () => {
       />
 
       <FormGrid>
+        <LottieAnimation lotti={typing} width={100} height={120} />
         <FormGridItem>
           <Form>
             {contactData?.form?.map((form) => (
@@ -38,11 +42,11 @@ const Content = () => {
                 <TextField name={form.value} label={form.title} key={form.id} />
               </>
             ))}
+            <FormButtonContainer>
+              <FormButton type="button">Enviar</FormButton>
+            </FormButtonContainer>
           </Form>
         </FormGridItem>
-        <FormButtonContainer>
-          <FormButton>Enviar</FormButton>
-        </FormButtonContainer>
       </FormGrid>
     </ContactGrid>
   )

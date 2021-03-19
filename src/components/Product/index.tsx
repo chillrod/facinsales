@@ -22,7 +22,6 @@ const Content = () => {
         />
       </TitleContent>
       <>
-        <LottieAnimation lotti={mac} width={800} height={600} />
         {productData?.content?.map((content) => (
           <ContentGrid key={content.id}>
             <ContentMotion>

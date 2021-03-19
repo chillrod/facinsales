@@ -7,19 +7,21 @@ import Image from 'next/image'
 
 export const BackgroundContainer = styled.div`
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  padding: 1em;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius: 10px;
 `
 
 export const Container = styled(motion.section).attrs({})`
-  padding: 1em;
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-auto-flow: dense;
 `
 
-export const ContentGrid = styled(motion.div).attrs({})``
+export const ContentGrid = styled(motion.div).attrs({})`
+  margin: 0 auto;
+  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+`
 export const TitleContent = styled(motion.div)`
   grid-column: 1 / -1;
   grid-row: 1;
@@ -27,10 +29,14 @@ export const TitleContent = styled(motion.div)`
   margin-bottom: 1em;
 `
 
-export const ContentMotion = styled(motion.div)``
+export const ContentMotion = styled(motion.div)`
+  justify-self: center;
+  align-self: center;
+`
 
 export const ProductImage = styled(Image).attrs({})`
   object-fit: contain;
+  display: block;
 `
 
 export const ListItemText = styled(ListItemTextStyled).attrs({

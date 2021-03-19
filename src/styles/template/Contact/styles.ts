@@ -6,10 +6,11 @@ import LinkStyled from '@material-ui/core/Link'
 import TextFieldStyled from '@material-ui/core/TextField'
 
 export const BackgroundContainer = styled.div`
-  padding-top: 3em;
+  padding-top: 1em;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius: 10px;
+  padding-bottom: 4em;
 `
 
 export const Container = styled(motion.div).attrs({})`
@@ -18,30 +19,46 @@ export const Container = styled(motion.div).attrs({})`
   flex-direction: column;
 `
 
-export const ContactGrid = styled(motion.div).attrs({})``
+export const ContactGrid = styled(motion.div).attrs({})`
+  @media (min-width: 800px) {
+    display: flex;
+    padding: 2em;
+    gap: 2em;
+    flex-direction: row;
+  }
+`
 
 export const ListItemText = styled(ListItemTextStyled).attrs({
   primaryTypographyProps: {
     component: 'div',
-    variant: 'h5'
+    variant: 'h3'
   },
   secondaryTypographyProps: {
-    component: 'div'
+    component: 'div',
+    align: 'left'
   }
 })``
 
 export const TitleBox = styled(motion.div).attrs({})``
 
 export const InfoTypography = styled(TypographyStyled).attrs({
-  align: 'left',
-  variant: 'body1'
-})``
+  variant: 'h5',
+  component: 'span'
+})`
+  &.MuiTypography-root {
+    color: ${(props) => props.theme.colors.text};
+    font-weight: 300;
+  }
+`
 
 export const CTATypography = styled(TypographyStyled).attrs({
   align: 'left',
-  variant: 'h6',
-  color: 'primary'
-})``
+  variant: 'h2'
+})`
+  &.MuiTypography-root {
+    color: ${(props) => props.theme.colors.secondBackground};
+  }
+`
 
 export const FormGrid = styled(motion.div).attrs({})``
 
@@ -55,7 +72,7 @@ export const TextField = styled(TextFieldStyled).attrs({
     margin-top: 1em;
     margin-bottom: 1em;
     font-size: 0.6rem;
-    background: white;
+    background: ${(props) => props.theme.colors.secondBackground};
     opacity: 0.8;
   }
   label {
@@ -70,22 +87,23 @@ export const FormButton = styled(LinkStyled).attrs({
 })`
   &.MuiLink-root {
     grid-column: 1 / -1;
-    justify-self: center;
+    justify-self: start;
     grid-row: 4 / 4;
+    width: 300px;
+    font-size: 1rem;
     margin-top: 1em;
     margin-bottom: 1em;
-    width: 200px;
     align-self: center;
     display: inline-block;
-    padding: 0.7em;
-    color: ${(props) => props.theme.colors.primary};
+    padding: 0.9em;
+    color: ${(props) => props.theme.colors.text};
     border: 2px solid ${(props) => props.theme.colors.primary};
 
     &:hover {
       &.MuiLink-root {
-        background: ${(props) => props.theme.colors.primary};
-        border: 2px solid ${(props) => props.theme.colors.textWhite};
-        color: ${(props) => props.theme.colors.textWhite};
+        background: ${(props) => props.theme.colors.background};
+        border: 2px solid ${(props) => props.theme.colors.primary};
+        color: ${(props) => props.theme.colors.text};
       }
     }
   }

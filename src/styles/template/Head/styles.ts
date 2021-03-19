@@ -6,8 +6,8 @@ import Image from 'next/image'
 import ListItemTextStyled from '@material-ui/core/ListItemText'
 
 export const BackgroundContainer = styled.div`
-  border-radius: 25px;
-  padding: 2em;
+  padding: 1em;
+  box-shadow: 0 0px 120px 0px rgba(31, 38, 135, 0.9);
   backdrop-filter: blur(5px);
   min-height: 95vh;
   -webkit-backdrop-filter: blur(5px);
@@ -18,15 +18,18 @@ export const BackgroundContainer = styled.div`
     hsla(76, 6%, 2%, 0.9) 90%
   );
 
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#3D71FF", endColorstr="#FEFEFF", GradientType=1 );
 `
 
 export const Container = styled.main`
   display: grid;
+  grid-template-columns: 1fr auto 1fr;
   grid-template-rows: auto auto auto 1fr auto;
   grid-column: 1 / -1;
-  padding: 1em;
+
+  @media (min-width: 800px) {
+    padding: 2em;
+  }
 `
 
 export const Desktop = styled.div`
@@ -40,7 +43,7 @@ export const Desktop = styled.div`
 `
 
 export const DesktopImageContainer = styled(motion.div)`
-  width: 800px;
+  width: 500px;
   img {
     object-fit: cover;
   }
@@ -100,12 +103,13 @@ export const CtaParagraphContent = styled(motion.div)`
 
 export const CtaParagraphText = styled(TypographyStyled).attrs({
   align: 'left',
-  variant: 'h6',
+  variant: 'h5',
   component: 'div'
 })`
   &.MuiTypography-root {
     color: ${(props) => props.theme.colors.text};
-    font-weight: 400;
+    margin-top: 0.3em;
+    font-weight: 300;
   }
 `
 export const LogoContainer = styled.div`
@@ -125,11 +129,12 @@ export const CtaLinkButton = styled(LinkStyled).attrs((props) => ({
     grid-column: 1 / -1;
     justify-self: start;
     grid-row: 4 / 4;
-    margin-top: 1em;
     width: 300px;
+    font-size: 1.3rem;
+    margin-top: 1em;
     align-self: start;
     display: inline-block;
-    padding: 0.7em;
+    padding: 0.9em;
     color: ${(props) => props.theme.colors.text};
     background: ${(props) => props.theme.colors.primary};
     border: 2px solid ${(props) => props.theme.colors.primary};
@@ -149,17 +154,16 @@ export const SalesContainer = styled(motion.div)`
   grid-row: 5 / 5;
   justify-self: start;
   align-self: end;
+  margin-top: 1em;
 `
 
-export const SalesLink = styled(LinkStyled).attrs((props) => ({
-  variant: 'h6',
+export const SalesLink = styled(LinkStyled).attrs({
+  variant: 'h5',
   component: 'span'
-}))`  
+})`
   &.MuiTypography-root {
     color: ${(props) => props.theme.colors.secondBackground};
-    }
   }
-
 `
 export const ListItemText = styled(ListItemTextStyled).attrs({
   secondaryTypographyProps: {
