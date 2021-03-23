@@ -4,7 +4,6 @@ import TypographyStyled from '@material-ui/core/Typography'
 import LinkStyled from '@material-ui/core/Link'
 
 export const BackgroundContainer = styled.div`
-  box-shadow: 0 8px 92px 0 rgba(31, 38, 135, 0.5);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius: 10px;

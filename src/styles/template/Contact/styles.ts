@@ -3,14 +3,17 @@ import { motion } from 'framer-motion'
 import ListItemTextStyled from '@material-ui/core/ListItemText'
 import TypographyStyled from '@material-ui/core/Typography'
 import LinkStyled from '@material-ui/core/Link'
-import TextFieldStyled from '@material-ui/core/TextField'
 
 export const BackgroundContainer = styled.div`
-  padding-top: 1em;
+  padding: 1em;
+  padding-top: 2em;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border-radius: 10px;
-  padding-bottom: 4em;
+  background: radial-gradient(
+    circle,
+    hsla(99, 80%, 10%, 0.1) 19%,
+    hsla(1, 2%, 1%, 1) 91%
+  );
 `
 
 export const Container = styled(motion.div).attrs({})`
@@ -60,24 +63,11 @@ export const CTATypography = styled(TypographyStyled).attrs({
   }
 `
 
-export const FormGrid = styled(motion.div).attrs({})``
+export const FormGrid = styled(motion.div).attrs({})`
+  width: 100%;
+`
 
 export const FormGridItem = styled(motion.div).attrs({})``
-
-export const TextField = styled(TextFieldStyled).attrs({
-  variant: 'filled'
-})`
-  &.MuiTextField-root {
-    width: 100%;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    font-size: 0.6rem;
-    background: ${(props) => props.theme.colors.secondBackground};
-    opacity: 0.8;
-  }
-  label {
-  }
-`
 
 export const FormButtonContainer = styled(motion.div).attrs({})``
 export const FormButton = styled(LinkStyled).attrs({

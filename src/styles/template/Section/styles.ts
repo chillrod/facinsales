@@ -7,15 +7,13 @@ import ListItemTextStyled from '@material-ui/core/ListItemText'
 
 export const BackgroundContainer = styled.div`
   padding: 1em;
-  box-shadow: 0 8px 90px 25px rgba(31, 38, 135, 0.9);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border-radius: 10px;
   padding-bottom: 3em;
   background: radial-gradient(
     circle,
-    hsla(173, 80%, 77%, 0.1) 19%,
-    hsla(76, 6%, 2%, 0.2) 91%
+    hsla(99, 80%, 10%, 0.1) 19%,
+    hsla(1, 2%, 1%, 1) 91%
   );
 `
 

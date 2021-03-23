@@ -6,11 +6,15 @@ import TypographyStyled from '@material-ui/core/Typography'
 import Image from 'next/image'
 
 export const BackgroundContainer = styled.div`
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-  padding: 1em;
+  padding: 3em;
+  padding-top: 2em;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border-radius: 10px;
+  background: radial-gradient(
+    circle,
+    hsla(99, 80%, 10%, 0.1) 19%,
+    hsla(1, 2%, 1%, 1) 91%
+  );
 `
 
 export const Container = styled(motion.section).attrs({})`

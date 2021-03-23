@@ -6,7 +6,9 @@ export const Container = styled.div`
   flex: 1;
   margin: 0 auto;
 
-  background: -webkit-radial-gradient(circle, hsla(76, 6%, 2%, 1) 91%);
+  @media (min-width: 800px) {
+    padding: 2.5em 3em;
+  }
 `
 
 export const Background = styled.div`

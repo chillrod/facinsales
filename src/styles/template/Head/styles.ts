@@ -6,18 +6,14 @@ import Image from 'next/image'
 import ListItemTextStyled from '@material-ui/core/ListItemText'
 
 export const BackgroundContainer = styled.div`
-  padding: 1em;
-  box-shadow: 0 0px 120px 0px rgba(31, 38, 135, 0.9);
-  backdrop-filter: blur(5px);
-  min-height: 95vh;
+  padding: 2em;
+  backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(5px);
-
   background: radial-gradient(
     circle,
-    hsla(224, 100%, 62%, 0.3) 20%,
-    hsla(76, 6%, 2%, 0.9) 90%
+    hsla(99, 80%, 10%, 0.1) 19%,
+    hsla(1, 2%, 1%, 1) 91%
   );
-
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#3D71FF", endColorstr="#FEFEFF", GradientType=1 );
 `
 
@@ -56,7 +52,7 @@ export const MediaQuery = styled.div`
   }
 `
 
-export const HeadingGrid = styled.div`
+export const HeadingGrid = styled(motion.div)`
   grid-column: 1 / -1;
   grid-row: 1 / 2;
   align-self: start;
@@ -88,9 +84,6 @@ export const CtaText = styled(TypographyStyled).attrs({
 })`
   &.MuiTypography-root {
     color: ${(props) => props.theme.colors.text};
-    @media (min-width: 800px) {
-      font-size: 6rem;
-    }
   }
 `
 
@@ -113,12 +106,19 @@ export const CtaParagraphText = styled(TypographyStyled).attrs({
   }
 `
 export const LogoContainer = styled.div`
-  grid-column: 1 / -1;
-  grid-row: 2 / 3;
-  align-self: end;
-  justify-self: end;
-  opacity: 0.3;
+  position: absolute;
+  top: -50px;
+  left: -100px;
+  width: 45%;
   z-index: -99;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    hsla(224, 100%, 62%, 0.3) 10%,
+    hsla(2, 90%, 3%, 0.1) 90%
+  );
+
+  border-radius: 30% 70% 70% 30% / 30% 77% 23% 70%;
 `
 export const CtaLinkButton = styled(LinkStyled).attrs((props) => ({
   component: 'button',
@@ -129,12 +129,12 @@ export const CtaLinkButton = styled(LinkStyled).attrs((props) => ({
     grid-column: 1 / -1;
     justify-self: start;
     grid-row: 4 / 4;
-    width: 300px;
+    width: 250px;
     font-size: 1.3rem;
     margin-top: 1em;
     align-self: start;
     display: inline-block;
-    padding: 0.9em;
+    padding: 0.5em;
     color: ${(props) => props.theme.colors.text};
     background: ${(props) => props.theme.colors.primary};
     border: 2px solid ${(props) => props.theme.colors.primary};

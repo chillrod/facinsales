@@ -161,6 +161,13 @@ export const productData: ProductContent = {
       name: 'Aplicação mobile',
       width: 800,
       height: 600
+    },
+    {
+      id: 3,
+      href: '/img/gifFacin2.gif',
+      name: 'Utilização do aplicativo Web',
+      width: 800,
+      height: 600
     }
   ]
 }
@@ -237,11 +244,31 @@ export const footerData: FooterContent = {
     },
     {
       id: 2,
-      title: 'Sobre Nós'
+      title: 'Sobre'
     },
     {
       id: 3,
       title: 'Contato'
+    }
+  ]
+}
+
+export type AboutProps = {
+  sobre: string
+  contato: string
+  produtos: string
+}
+
+export type AboutContent = {
+  content: AboutProps[]
+}
+
+export const aboutData: AboutContent = {
+  content: [
+    {
+      sobre: 'Nós somos a facile sistemas',
+      contato: '27 99575967',
+      produtos: 'Facile'
     }
   ]
 }

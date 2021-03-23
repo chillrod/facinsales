@@ -1,5 +1,4 @@
 import { Container, Background } from './styles'
-// import background from '../../../../public/img/background.png'
 import Head from '../../../components/Head'
 import Section from '../../../components/Section'
 import Product from '../../../components/Product'

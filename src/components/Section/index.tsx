@@ -1,4 +1,5 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
 import { mainData } from '../../services/api'
 import {
   BackgroundContainer,
@@ -17,6 +18,7 @@ import {
   CtaTypography,
   CtaLinkButton
 } from '../../styles/template/Section/styles'
+import { useAnimation } from 'framer-motion'
 
 const CtaButtonComponent = () => {
   return (
@@ -28,33 +30,54 @@ const CtaButtonComponent = () => {
 }
 
 const Content = () => {
+  const headTextControl = useAnimation()
+  const [headTextRef, headTextInView] = useInView()
+
+  useEffect(() => {
+    if (headTextInView) {
+      headTextControl.start('visible')
+    }
+  }, [headTextControl, headTextInView])
+
   return (
     <>
-      <SectionTransitionGrid>
+      <SectionTransitionGrid
+        ref={headTextRef}
+        animate={headTextControl}
+        initial="hidden"
+        transition={{ duration: 0.4 }}
+        variants={{
+          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: -10 }
+        }}
+      >
         <TypographyHeader>{mainData.headText}</TypographyHeader>
       </SectionTransitionGrid>
       <MediaQuery>
         <SectionGrid>
-          {mainData?.content?.map((data, index) => (
-            <Fragment key={data.id}>
-              <SectionGridItemMotion>
-                <Icon>{data.icon}</Icon>
-                <ListItemText
-                  primary={<TypographyHead>{data.title}</TypographyHead>}
-                  secondary={
-                    <Details>
-                      <Typography>{data.paragraph}</Typography>
-                    </Details>
-                  }
-                />
-              </SectionGridItemMotion>
-              {index % 8 === 3 && (
-                <CtaButtonGrid>
-                  <CtaButtonComponent />
-                </CtaButtonGrid>
-              )}
-            </Fragment>
-          ))}
+          {mainData?.content?.map((data, index) => {
+            if (index < 6)
+              return (
+                <Fragment key={data.id}>
+                  <SectionGridItemMotion>
+                    <Icon>{data.icon}</Icon>
+                    <ListItemText
+                      primary={<TypographyHead>{data.title}</TypographyHead>}
+                      secondary={
+                        <Details>
+                          <Typography>{data.paragraph}</Typography>
+                        </Details>
+                      }
+                    />
+                  </SectionGridItemMotion>
+                  {index % 8 === 3 && (
+                    <CtaButtonGrid>
+                      <CtaButtonComponent />
+                    </CtaButtonGrid>
+                  )}
+                </Fragment>
+              )
+          })}
         </SectionGrid>
       </MediaQuery>
     </>

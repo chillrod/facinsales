@@ -14,7 +14,7 @@ const Content = () => {
       <ProductName>{footerData.productName}</ProductName>
       {footerData?.links?.map((link) => (
         <LinkBox key={link.id}>
-          <NavLink href="">{link.title}</NavLink>
+          <NavLink href={`/about/${link.title}`}>{link.title}</NavLink>
         </LinkBox>
       ))}
     </ContentGrid>

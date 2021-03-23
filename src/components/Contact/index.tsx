@@ -1,6 +1,10 @@
+import { useCallback, useRef } from 'react'
+import { sendMail } from '../../hooks/CodeMailer'
 import { contactData } from '../../services/api'
 import { Form } from '@unform/web'
-
+import { FormHandles } from '@unform/core'
+import * as Yup from 'yup'
+import TextField from '../Input/'
 import {
   BackgroundContainer,
   ListItemText,
@@ -8,16 +12,43 @@ import {
   InfoTypography,
   FormGrid,
   FormGridItem,
-  TextField,
   FormButtonContainer,
   FormButton,
   Container,
   ContactGrid,
   CTATypography
 } from '../../styles/template/Contact/styles'
-import LottieAnimation from 'components/Animation'
-import typing from '../../../public/animation/typing.json'
+import getContactErrors from '../../utils/getContactErrors'
+
+interface DataProps {
+  name: string
+  company: string
+  email: string
+  observation: string
+}
+
 const Content = () => {
+  const formRef = useRef<FormHandles>(null)
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  const handleSubmit = useCallback(async (data: DataProps) => {
+    console.log(data)
+    try {
+      const schema = Yup.object().shape({
+        name: Yup.string().required('Nome não deve ser vazio'),
+        email: Yup.string().required('Email não deve ser vazio')
+      })
+
+      await schema.validate(data, {
+        abortEarly: false
+      })
+      const { name, email, company, observation } = data
+      await sendMail({ name, email, company, observation })
+    } catch (err) {
+      const errors = getContactErrors(err)
+      formRef.current?.setErrors(errors)
+    }
+  }, [])
+
   return (
     <ContactGrid>
       <ListItemText
@@ -34,16 +65,21 @@ const Content = () => {
       />
 
       <FormGrid>
-        <LottieAnimation lotti={typing} width={100} height={120} />
         <FormGridItem>
-          <Form>
-            {contactData?.form?.map((form) => (
-              <>
-                <TextField name={form.value} label={form.title} key={form.id} />
-              </>
-            ))}
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <>
+              <TextField name="name" label="Nome" />
+              <TextField name="email" label="E-Mail" />
+              <TextField name="company" label="Empresa (opcional) " />
+              <TextField
+                name="observation"
+                label="Observação"
+                multiline
+                rows={4}
+              />
+            </>
             <FormButtonContainer>
-              <FormButton type="button">Enviar</FormButton>
+              <FormButton type="submit">Enviar</FormButton>
             </FormButtonContainer>
           </Form>
         </FormGridItem>
