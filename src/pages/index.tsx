@@ -1,5 +1,9 @@
 import Layout from '../styles/template/Layout'
-
+import { motion } from 'framer-motion'
 export default function Home() {
-  return <Layout />
+  return (
+    <motion.div>
+      <Layout />
+    </motion.div>
+  )
 }

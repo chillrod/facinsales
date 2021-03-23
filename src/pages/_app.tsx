@@ -1,3 +1,4 @@
+import { AnimateSharedLayout } from 'framer-motion'
 import { useEffect } from 'react'
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
@@ -23,7 +24,9 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Component {...pageProps} />
+        <AnimateSharedLayout>
+          <Component {...pageProps} />
+        </AnimateSharedLayout>
       </ThemeProvider>
     </>
   )

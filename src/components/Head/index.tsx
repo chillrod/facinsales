@@ -1,9 +1,12 @@
 // import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import Menu from '../Menu'
 import { headData } from '../../services/api'
 import {
   BackgroundContainer,
   Container,
+  HeadMenu,
   Desktop,
   DesktopImageContainer,
   MediaQuery,
@@ -33,7 +36,10 @@ const HeadText = () => {
           duration: 0.4
         }}
       >
-        <ProductNameType>{headData.product}</ProductNameType>
+        <HeadMenu>
+          <Menu />
+          <ProductNameType>{headData.product}</ProductNameType>
+        </HeadMenu>
       </HeadingGrid>
 
       <CtaContent
@@ -64,7 +70,9 @@ const HeadText = () => {
           duration: 0.4
         }}
       >
-        <CtaLinkButton>{headData.buttonText}</CtaLinkButton>
+        <Link href="about/Contato">
+          <CtaLinkButton>{headData.buttonText}</CtaLinkButton>
+        </Link>
       </motion.div>
 
       <SalesContainer>

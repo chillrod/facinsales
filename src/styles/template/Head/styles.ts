@@ -55,10 +55,10 @@ export const MediaQuery = styled.div`
 export const HeadingGrid = styled(motion.div)`
   grid-column: 1 / -1;
   grid-row: 1 / 2;
-  align-self: start;
-  justify-self: start;
   margin-top: 0.6em;
 `
+
+export const HeadMenu = styled.div``
 
 export const ProductNameType = styled(TypographyStyled).attrs({
   variant: 'h5',

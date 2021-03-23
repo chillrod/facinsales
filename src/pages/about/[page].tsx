@@ -1,23 +1,61 @@
 import { useRouter } from 'next/router'
-import { Typography } from '@material-ui/core'
+// import DefaultErrorPage from 'next/error'
+import Icon from '@material-ui/core/Icon'
+import Contact from '../../components/Contact'
+import Footer from '../../components/Footer'
 import {
   Container,
-  Background,
-  ListItemText
+  BackgroundContainer,
+  HeadingGrid,
+  ProductNameType,
+  CtaContent,
+  CtaParagraphContent,
+  CtaParagraphText,
+  LinkContainer,
+  CtaText
 } from '../../styles/template/OtherPages/styles'
-// import { aboutData } from '../../services/api'
+import { aboutData } from '../../services/api'
+import Link from 'next/link'
 
 const About = () => {
   const router = useRouter()
-
   const { page } = router.query
 
   return (
-    <Container>
-      <Background>
-        <ListItemText primary={page} secondary={page} />
-      </Background>
-    </Container>
+    <BackgroundContainer>
+      <LinkContainer>
+        <Icon>arrow_back</Icon>
+        <Link href="/">Voltar</Link>
+      </LinkContainer>
+      {page === 'Sobre' && (
+        <Container>
+          <HeadingGrid>
+            <ProductNameType>{aboutData.Sobre.subject}</ProductNameType>
+          </HeadingGrid>
+          <CtaContent>
+            <CtaText>{aboutData.Sobre.title}</CtaText>
+          </CtaContent>
+          <CtaParagraphContent>
+            <CtaParagraphText>{aboutData.Sobre.contact}</CtaParagraphText>
+          </CtaParagraphContent>
+        </Container>
+      )}
+      {page === 'Contato' && (
+        <Container>
+          <HeadingGrid>
+            <ProductNameType>{aboutData.Contato.subject}</ProductNameType>
+          </HeadingGrid>
+          <CtaContent>
+            <CtaText>{aboutData.Contato.title}</CtaText>
+          </CtaContent>
+          <CtaParagraphContent>
+            <CtaParagraphText>{aboutData.Contato.contact}</CtaParagraphText>
+          </CtaParagraphContent>
+        </Container>
+      )}
+      <Contact />
+      <Footer />
+    </BackgroundContainer>
   )
 }
 

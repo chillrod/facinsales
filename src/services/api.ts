@@ -239,10 +239,6 @@ export const footerData: FooterContent = {
   productName: 'FacIn Web Sales',
   links: [
     {
-      id: 1,
-      title: 'Produtos'
-    },
-    {
       id: 2,
       title: 'Sobre'
     },
@@ -254,21 +250,27 @@ export const footerData: FooterContent = {
 }
 
 export type AboutProps = {
-  sobre: string
-  contato: string
-  produtos: string
+  title: string
+  contact?: string
+  subject: string
 }
 
 export type AboutContent = {
-  content: AboutProps[]
+  Sobre: AboutProps
+  Contato: AboutProps
 }
 
 export const aboutData: AboutContent = {
-  content: [
-    {
-      sobre: 'Nós somos a facile sistemas',
-      contato: '27 99575967',
-      produtos: 'Facile'
-    }
-  ]
+  Sobre: {
+    subject: 'Sobre nós',
+    title: 'Nós somos a Facile Sistemas',
+    contact:
+      'Estamos baseados na Serra ES, no centro Centro Empresarial. Atuamos ativamente com o ERP Protheus e também com tecnologias Web. Integrando sistemas completos e ágeis para o melhor controle e experiência dos nossos usuários. Hoje contamos com uma incrível equipe de desenvolvedores aptos à oferecer um suporte robusto e positivo.'
+  },
+  Contato: {
+    subject: 'Fale Conosco!',
+    contact:
+      'Endereço: Av. Eldes Scherrer Souza, Centro Empresarial da Serra, Laranjeiras- Serra-ES',
+    title: 'Estamos prontos para o melhor atendimento.'
+  }
 }

@@ -1,5 +1,6 @@
 import { useCallback, useRef } from 'react'
-import { sendMail } from '../../hooks/CodeMailer'
+import MailTemplate from '../../services/Mail/MailTemplate'
+import apiCodeMailer from '../../services/CodeMailer/CodeMailer'
 import { contactData } from '../../services/api'
 import { Form } from '@unform/web'
 import { FormHandles } from '@unform/core'
@@ -31,18 +32,32 @@ const Content = () => {
   const formRef = useRef<FormHandles>(null)
   // eslint-disable-next-line @typescript-eslint/ban-types
   const handleSubmit = useCallback(async (data: DataProps) => {
-    console.log(data)
     try {
       const schema = Yup.object().shape({
         name: Yup.string().required('Nome não deve ser vazio'),
-        email: Yup.string().required('Email não deve ser vazio')
+        email: Yup.string()
+          .email('Deve ser um email válido')
+          .required('Email não deve ser vazio')
       })
 
       await schema.validate(data, {
         abortEarly: false
       })
-      const { name, email, company, observation } = data
-      await sendMail({ name, email, company, observation })
+      await apiCodeMailer({
+        url: `${apiCodeMailer.defaults.baseURL}/email`,
+        method: 'post',
+        data: {
+          from: 'noreply@facilesistemas.com.br',
+          to: 'ivan@facilesistemas.com.br',
+          subject: 'Prospect do FacIN Sales',
+          html: MailTemplate({
+            name: data.name,
+            email: data.email,
+            company: data.company,
+            observation: data.observation
+          })
+        }
+      }).then((res) => res.data)
     } catch (err) {
       const errors = getContactErrors(err)
       formRef.current?.setErrors(errors)
