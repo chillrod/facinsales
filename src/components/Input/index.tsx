@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { InputHTMLAttributes, useEffect, useRef } from 'react'
 import { useField } from '@unform/core'
 
@@ -26,6 +27,7 @@ const Input: React.FC<InputProps> = ({ name, ...rest }) => {
 
   return (
     <>
+      {/*@ts-ignore */}
       <TextField defaultValue={defaultValue} inputRef={inputRef} {...rest} />
       <Typography variant="body2" color="secondary">
         {error}

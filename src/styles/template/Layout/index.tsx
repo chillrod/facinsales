@@ -1,19 +1,20 @@
+import dynamic from 'next/dynamic'
 import { Container, Background } from './styles'
-import Head from '../../../components/Head'
-import Section from '../../../components/Section'
-import Product from '../../../components/Product'
-import Contact from '../../../components/Contact'
-import Footer from '../../../components/Footer'
+const DynamicHead = dynamic(() => import('../../../components/Head'))
+const DynamicSection = dynamic(() => import('../../../components/Section'))
+const DynamicProduct = dynamic(() => import('../../../components/Product'))
+const DynamicContact = dynamic(() => import('../../../components/Contact'))
+const DynamicFooter = dynamic(() => import('../../../components/Footer'))
 
 const Layout = () => {
   return (
     <Container>
       <Background>
-        <Head />
-        <Section />
-        <Product />
-        <Contact />
-        <Footer />
+        <DynamicHead />
+        <DynamicSection />
+        <DynamicProduct />
+        <DynamicContact />
+        <DynamicFooter />
       </Background>
     </Container>
   )

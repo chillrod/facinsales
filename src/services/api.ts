@@ -33,13 +33,13 @@ export const headData: PageContent = {
       id: 1,
       name: 'GooglePlay',
       slug: 'googleplay',
-      href: '/img/googleplay/logo.png',
+      href: '/googleplay.png',
       width: 150,
       height: 80
     }
   ],
   techDesktop: {
-    imageHref: '/img/landingPicture.png',
+    imageHref: '/landingPicture.png',
     width: 1000,
     height: 1000
   }
@@ -150,21 +150,21 @@ export const productData: ProductContent = {
   content: [
     {
       id: 1,
-      href: '/img/product1.png',
+      href: '/product1.png',
       name: 'Página de Produtos',
       width: 800,
       height: 600
     },
     {
       id: 2,
-      href: '/img/phone.png',
+      href: '/phone.png',
       name: 'Aplicação mobile',
       width: 800,
       height: 600
     },
     {
       id: 3,
-      href: '/img/gifFacin2.gif',
+      href: '/gifFacin2.gif',
       name: 'Utilização do aplicativo Web',
       width: 800,
       height: 600

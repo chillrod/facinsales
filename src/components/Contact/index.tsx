@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import MailTemplate from '../../services/Mail/MailTemplate'
 import apiCodeMailer from '../../services/CodeMailer/CodeMailer'
 import { contactData } from '../../services/api'
@@ -23,13 +23,16 @@ import getContactErrors from '../../utils/getContactErrors'
 
 interface DataProps {
   name: string
-  company: string
+  phone: string
   email: string
+  company: string
+  role: string
   observation: string
 }
 
 const Content = () => {
   const formRef = useRef<FormHandles>(null)
+  const [mailBtn, setMailBtn] = useState('Enviar')
   // eslint-disable-next-line @typescript-eslint/ban-types
   const handleSubmit = useCallback(async (data: DataProps) => {
     try {
@@ -37,7 +40,8 @@ const Content = () => {
         name: Yup.string().required('Nome não deve ser vazio'),
         email: Yup.string()
           .email('Deve ser um email válido')
-          .required('Email não deve ser vazio')
+          .required('Email não deve ser vazio'),
+        phone: Yup.string().required('Telefone não deve ser vazio')
       })
 
       await schema.validate(data, {
@@ -47,17 +51,23 @@ const Content = () => {
         url: `${apiCodeMailer.defaults.baseURL}/email`,
         method: 'post',
         data: {
-          from: 'noreply@facilesistemas.com.br',
-          to: 'ivan@facilesistemas.com.br',
+          from: process.env.NEXT_PUBLIC_CODE_MAILER_FROM,
+          to: process.env.NEXT_PUBLIC_CODE_MAILER_TO,
           subject: 'Prospect do FacIN Sales',
           html: MailTemplate({
             name: data.name,
             email: data.email,
+            phone: data.phone,
             company: data.company,
+            role: data.role,
             observation: data.observation
           })
         }
-      }).then((res) => res.data)
+      }).then((res) => {
+        res.data
+
+        setMailBtn('Enviado')
+      })
     } catch (err) {
       const errors = getContactErrors(err)
       formRef.current?.setErrors(errors)
@@ -85,7 +95,9 @@ const Content = () => {
             <>
               <TextField name="name" label="Nome" />
               <TextField name="email" label="E-Mail" />
+              <TextField name="phone" label="Telefone" />
               <TextField name="company" label="Empresa (opcional) " />
+              <TextField name="role" label="Cargo (opcional) " />
               <TextField
                 name="observation"
                 label="Observação"
@@ -94,7 +106,7 @@ const Content = () => {
               />
             </>
             <FormButtonContainer>
-              <FormButton type="submit">Enviar</FormButton>
+              <FormButton type="submit">{mailBtn}</FormButton>
             </FormButtonContainer>
           </Form>
         </FormGridItem>

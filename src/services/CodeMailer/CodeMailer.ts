@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiCodeMailer = axios.create({
-  baseURL: 'http://10.0.0.101:3334/v2'
+  baseURL: process.env.NEXT_PUBLIC_CODE_MAILER_URL
 })
 
 export default apiCodeMailer

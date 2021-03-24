@@ -1,14 +1,18 @@
 export interface MailProps {
   name: string
   email: string
+  phone: string
   company: string
+  role: string
   observation: string
 }
 
 function MailTemplate({
   name,
   email,
+  phone,
   company,
+  role,
   observation
 }: MailProps): string {
   return `
@@ -21,10 +25,13 @@ function MailTemplate({
       <title>Document</title>
    </head>
    <body>
-         <h1>Olá! Me chamo ${name}</h1>
-         <p>Estou interessado no produto FacIN Sales, atualmente trabalho na empresa ${company}</p>
+         <h3>Olá! Me chamo ${name}</h3>
+         <p>Estou interessado no produto FacIN Sales, atualmente trabalho na empresa ${company} ${
+    role ? `com o cargo de ${role}` : ''
+  }</p>
          <p>Meu email de contato é ${email}</p>
-         <p>Observações: ${observation}</p>
+         <p>E meu telefone: ${phone}
+         <p>${observation ? `Observações ${observation}` : ''}</p>
    </body>
    </html>
    `

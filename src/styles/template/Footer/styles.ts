@@ -6,33 +6,31 @@ import LinkStyled from '@material-ui/core/Link'
 export const BackgroundContainer = styled.div`
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border-radius: 10px;
-  background: ${(props) => props.theme.colors.background};
-  padding-top: 2em;
+  background: ${(props) => props.theme.colors.secondary};
+  padding: 2em;
 `
 
 export const Container = styled.footer`
-  padding: 1em;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  margin-top: 1em;
+  display: flex;
+  justify-content: space-around;
 `
 
-export const ContentGrid = styled.div`
-  justify-self: center;
-`
+export const ContentGrid = styled.div``
 
 export const LinkBox = styled.div``
 
 export const ListItemText = styled(ListItemTextStyled).attrs({
   primaryTypographyProps: {
-    component: 'div'
+    component: 'div',
+    variant: 'h6'
   },
   secondaryTypographyProps: {
-    component: 'div'
+    component: 'div',
+    variant: 'body1'
   }
 })`
-  &.MuiTypography-root {
+  div {
+    color: ${(props) => props.theme.colors.text};
   }
 `
 

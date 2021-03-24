@@ -7,6 +7,7 @@ export const Container = styled.div`
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: auto auto auto 1fr auto;
   grid-column: 1 / -1;
+  padding: 3em;
 
   background: radial-gradient(
     circle,
@@ -14,21 +15,13 @@ export const Container = styled.div`
     hsla(1, 2%, 1%, 1) 91%
   );
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#3D71FF", endColorstr="#FEFEFF", GradientType=1 );
-
-  @media (min-width: 800px) {
-    padding: 1em 3em;
-  }
 `
 
 export const BackgroundContainer = styled.div`
-  padding: 0.3em;
+  padding: 3em;
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(5px);
-  background: radial-gradient(
-    circle,
-    hsla(99, 80%, 10%, 0.1) 19%,
-    hsla(1, 2%, 1%, 1) 91%
-  );
+
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#3D71FF", endColorstr="#FEFEFF", GradientType=1 );
 `
 export const LinkContainer = styled.div`

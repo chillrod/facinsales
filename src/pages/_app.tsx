@@ -21,6 +21,7 @@ function App({ Component, pageProps }: AppProps) {
         <link rel="apple-touch-icon" href="/img/icon-512.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="description" content="Portal de vendas FacIN Sales" />
+        <link rel="shortcut icon" href="/img/logo.png" />
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
