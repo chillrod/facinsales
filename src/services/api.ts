@@ -144,7 +144,7 @@ export type ProductHead = {
 }
 
 export const productHead: ProductHead = {
-  title: 'Plataforma com maior rapidez de melhorias.',
+  title: 'Plataforma com maior fluidez e segurança.',
   icon: 'system_update'
 }
 

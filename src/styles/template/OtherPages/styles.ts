@@ -30,7 +30,6 @@ export const LinkContainer = styled.div`
   border: 1px solid ${(props) => props.theme.colors.primary};
   max-width: 200px;
   margin-bottom: 1em;
-  margin-left: 1em;
 
   span {
     color: ${(props) => props.theme.colors.primary};

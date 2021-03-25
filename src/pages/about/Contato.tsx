@@ -1,44 +1,78 @@
-// import DefaultErrorPage from 'next/error'
+import Link from 'next/link'
 import Icon from '@material-ui/core/Icon'
-import Contact from '../../components/Contact'
-import Footer from '../../components/Footer'
+import { aboutData } from '../../services/api'
+import { LinkContainer } from '../../styles/template/OtherPages/styles'
 import {
-  Container,
   BackgroundContainer,
+  Container,
+  MediaQuery,
+  HeadMenu,
   HeadingGrid,
   ProductNameType,
   CtaContent,
+  CtaText,
   CtaParagraphContent,
-  CtaParagraphText,
-  LinkContainer,
-  CtaText
-} from '../../styles/template/OtherPages/styles'
-import { aboutData } from '../../services/api'
-import Link from 'next/link'
+  CtaParagraphText
+} from '../../styles/template/Head/styles'
+import Footer from 'components/Footer'
+import Contact from 'components/Contact'
 
-const Contato = () => {
+const HeadText = () => {
   return (
-    <BackgroundContainer>
-      <LinkContainer>
-        <Icon>arrow_back</Icon>
-        <Link href="/">Voltar</Link>
-      </LinkContainer>
+    <>
+      <HeadingGrid
+        initial={{ opacity: 0, y: -5 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          ease: 'easeIn',
+          duration: 0.4
+        }}
+      >
+        <HeadMenu>
+          <ProductNameType>{aboutData.Contato.title}</ProductNameType>
+        </HeadMenu>
+      </HeadingGrid>
 
-      <Container>
-        <HeadingGrid>
-          <ProductNameType>{aboutData.Contato.subject}</ProductNameType>
-        </HeadingGrid>
-        <CtaContent>
-          <CtaText>{aboutData.Contato.title}</CtaText>
-        </CtaContent>
-        <CtaParagraphContent>
-          <CtaParagraphText>{aboutData.Contato.contact}</CtaParagraphText>
-        </CtaParagraphContent>
-      </Container>
-      <Contact />
-      <Footer />
-    </BackgroundContainer>
+      <CtaContent
+        initial={{ opacity: 0, y: -5 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          ease: 'easeIn',
+          duration: 0.6
+        }}
+      >
+        <CtaText>{aboutData.Contato.subject}</CtaText>
+      </CtaContent>
+      <CtaParagraphContent
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          ease: 'easeIn',
+          duration: 0.4
+        }}
+      >
+        <CtaParagraphText>{aboutData.Contato.contact}</CtaParagraphText>
+      </CtaParagraphContent>
+    </>
   )
 }
 
-export default Contato
+const Head = () => {
+  return (
+    <>
+      <BackgroundContainer>
+        <LinkContainer>
+          <Icon>arrow_back</Icon>
+          <Link href="/">Voltar</Link>
+        </LinkContainer>
+        <Container>
+          <HeadText />
+        </Container>
+      </BackgroundContainer>
+      <Contact />
+      <Footer />
+    </>
+  )
+}
+
+export default Head
