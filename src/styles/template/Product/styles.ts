@@ -10,11 +10,7 @@ export const BackgroundContainer = styled.div`
   padding-top: 2em;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  background: radial-gradient(
-    circle,
-    hsla(99, 80%, 10%, 0.1) 19%,
-    hsla(1, 2%, 1%, 1) 91%
-  );
+  background: linear-gradient(hsla(1, 1%, 1%, 0.6) 10%, rgb(0, 0, 0) 90%);
 `
 
 export const Container = styled(motion.section).attrs({})`
@@ -22,9 +18,8 @@ export const Container = styled(motion.section).attrs({})`
 `
 
 export const ContentGrid = styled(motion.div).attrs({})`
-  margin: 0 auto;
-  grid-gap: 2em;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: flex;
+  justify-content: center;
 `
 export const TitleContent = styled(motion.div)`
   grid-column: 1 / -1;

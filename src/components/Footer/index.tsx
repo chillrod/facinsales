@@ -7,19 +7,20 @@ import {
   LinkBox,
   NavLink,
   ListItemText,
-  Container
+  Container,
+  MapContainer
 } from '../../styles/template/Footer/styles'
 
 const Map = () => {
   return (
-    <div>
+    <MapContainer>
       <ListItemText primary="Estamos localizados em" />
       <iframe
-        width="500"
-        height="200"
+        width="100%"
+        height="100%"
         src="https://maps.google.com/maps?q=Facile%20Sistemas%20Centro%20Empresarial%20da%20Serra%20-%20Sala%20523,%20Av.%20Eldes%20Scherrer%20Souza,%201025%20-%20Parque%20Res.%20Laranjeiras,%20Serra%20-%20ES,%2029165-680&t=&z=13&ie=UTF8&iwloc=&output=embed"
       ></iframe>
-    </div>
+    </MapContainer>
   )
 }
 const Content = () => {

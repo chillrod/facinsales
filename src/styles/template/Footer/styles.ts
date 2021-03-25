@@ -12,12 +12,22 @@ export const BackgroundContainer = styled.div`
 
 export const Container = styled.footer`
   display: flex;
+  align-items: center;
+  flex-direction: column;
   justify-content: space-around;
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+  }
 `
 
 export const ContentGrid = styled.div``
 
 export const LinkBox = styled.div``
+
+export const MapContainer = styled.div`
+  width: 85%;
+`
 
 export const ListItemText = styled(ListItemTextStyled).attrs({
   primaryTypographyProps: {

@@ -1,4 +1,5 @@
 import { Fragment, useEffect } from 'react'
+import Link from 'next/link'
 import { useInView } from 'react-intersection-observer'
 import { mainData } from '../../services/api'
 import {
@@ -19,15 +20,6 @@ import {
   CtaLinkButton
 } from '../../styles/template/Section/styles'
 import { useAnimation } from 'framer-motion'
-
-const CtaButtonComponent = () => {
-  return (
-    <>
-      <CtaTypography>{mainData.title}</CtaTypography>
-      <CtaLinkButton>{mainData.buttonText}</CtaLinkButton>
-    </>
-  )
-}
 
 const Content = () => {
   const headTextControl = useAnimation()
@@ -72,7 +64,10 @@ const Content = () => {
                   </SectionGridItemMotion>
                   {index % 8 === 3 && (
                     <CtaButtonGrid>
-                      <CtaButtonComponent />
+                      <CtaTypography>{mainData.title}</CtaTypography>
+                      <Link href="about/Contato">
+                        <CtaLinkButton>{mainData.buttonText}</CtaLinkButton>
+                      </Link>
                     </CtaButtonGrid>
                   )}
                 </Fragment>

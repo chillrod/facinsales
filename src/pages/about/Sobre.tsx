@@ -34,8 +34,6 @@ const Sobre = () => {
           <CtaParagraphText>{aboutData.Sobre.contact}</CtaParagraphText>
         </CtaParagraphContent>
       </Container>
-
-      <Contact />
       <Footer />
     </BackgroundContainer>
   )

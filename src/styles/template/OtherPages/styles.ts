@@ -4,10 +4,10 @@ import TypographyStyled from '@material-ui/core/Typography'
 
 export const Container = styled.div`
   display: grid;
+  padding: 1em;
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: auto auto auto 1fr auto;
   grid-column: 1 / -1;
-  padding: 3em;
 
   background: radial-gradient(
     circle,
@@ -18,7 +18,6 @@ export const Container = styled.div`
 `
 
 export const BackgroundContainer = styled.div`
-  padding: 3em;
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(5px);
 
@@ -27,6 +26,11 @@ export const BackgroundContainer = styled.div`
 export const LinkContainer = styled.div`
   display: flex;
   align-items: center;
+  padding: 1em;
+  border: 1px solid ${(props) => props.theme.colors.primary};
+  max-width: 200px;
+  margin-bottom: 1em;
+  margin-left: 1em;
 
   span {
     color: ${(props) => props.theme.colors.primary};
@@ -34,7 +38,9 @@ export const LinkContainer = styled.div`
   }
   a {
     font-size: 1.4rem;
+    padding: 0 2em 0 0;
     text-decoration: none;
+    text-align: left;
     color: ${(props) => props.theme.colors.primary};
 
     &:hover {

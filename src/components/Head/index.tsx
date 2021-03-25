@@ -76,7 +76,11 @@ const HeadText = () => {
 
       <SalesContainer>
         <ListItemText
-          primary={<SalesLink href="#">{headData.linkContent}</SalesLink>}
+          primary={
+            <Link href="about/Contato">
+              <SalesLink>{headData.linkContent}</SalesLink>
+            </Link>
+          }
           secondary={headData?.techData?.map((tech) => (
             <TechImage
               key={tech.id}

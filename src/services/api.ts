@@ -133,7 +133,9 @@ export type Product = {
 }
 
 export type ProductContent = {
-  content?: Product[]
+  desktop?: Product[]
+  mobile?: Product[]
+  sample?: Product[]
 }
 
 export type ProductHead = {
@@ -147,7 +149,7 @@ export const productHead: ProductHead = {
 }
 
 export const productData: ProductContent = {
-  content: [
+  desktop: [
     {
       id: 1,
       href: '/product1.png',
@@ -157,15 +159,33 @@ export const productData: ProductContent = {
     },
     {
       id: 2,
-      href: '/phone.png',
-      name: 'Aplicação mobile',
+      href: '/product2.png',
+      name: 'Página de Venda',
+      width: 800,
+      height: 600
+    }
+  ],
+  mobile: [
+    {
+      id: 3,
+      href: '/product3.gif',
+      name: 'Mobile',
       width: 800,
       height: 600
     },
     {
-      id: 3,
-      href: '/gifFacin2.gif',
-      name: 'Utilização do aplicativo Web',
+      id: 4,
+      href: '/product4.gif',
+      name: 'Mobile 2',
+      width: 800,
+      height: 600
+    }
+  ],
+  sample: [
+    {
+      id: 5,
+      href: '/product5.gif',
+      name: 'Mobile',
       width: 800,
       height: 600
     }

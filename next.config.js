@@ -8,3 +8,12 @@ module.exports = withPWA({
     disable: !isProd
   }
 })
+
+module.exports = { assetPrefix: '.' }
+
+module.exports = {
+  images: {
+    loader: 'imgix',
+    path: '.'
+  }
+}

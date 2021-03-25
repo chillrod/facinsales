@@ -163,6 +163,7 @@ export const SalesLink = styled(LinkStyled).attrs({
 })`
   &.MuiTypography-root {
     color: ${(props) => props.theme.colors.secondBackground};
+    cursor: pointer;
   }
 `
 export const ListItemText = styled(ListItemTextStyled).attrs({
