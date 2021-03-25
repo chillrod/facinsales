@@ -11,6 +11,8 @@
 # next.js
 /.next/
 _static
+buildFacinSales.zip
+buildFacinSales
 # production
 /build
 
