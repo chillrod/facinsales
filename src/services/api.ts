@@ -133,9 +133,9 @@ export type Product = {
 }
 
 export type ProductContent = {
-  desktop?: Product[]
-  mobile?: Product[]
-  sample?: Product[]
+  desktop: Product[]
+  mobile: Product[]
+  sample: Product[]
 }
 
 export type ProductHead = {
